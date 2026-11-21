@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panem Cozy Arena • Per Te 🌼</title>
+    <title>Panem Cozy Arena • Per Te 🤍</title>
     <!-- Font arrotondati e stile retro-cute -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-cream: #fff9f0;
-            --gingham-1: rgba(246, 211, 145, 0.35);
-            --gingham-2: rgba(255, 198, 179, 0.3);
+            --bg-sky: #f0f7ff;
+            --gingham-1: rgba(186, 217, 255, 0.35);
+            --gingham-2: rgba(214, 234, 255, 0.4);
             --card-bg: #ffffff;
-            --accent-gold: #f4b942;
-            --accent-coral: #ff8a75;
-            --accent-sage: #8fb996;
-            --border-dark: #4a3b32;
-            --text-main: #4a3b32;
-            --text-soft: #7d685b;
+            --accent-blue: #5496ff;
+            --accent-sky: #8fc1ff;
+            --border-dark: #2c4a6f;
+            --text-main: #2c4a6f;
+            --text-soft: #52729a;
         }
 
         * {
@@ -28,7 +27,7 @@
         }
 
         body {
-            background-color: var(--bg-cream);
+            background-color: var(--bg-sky);
             background-image:
                 linear-gradient(90deg, var(--gingham-1) 50%, transparent 50%),
                 linear-gradient(var(--gingham-2) 50%, transparent 50%);
@@ -60,7 +59,7 @@
         }
 
         .window-bar {
-            background: #ffe5b4;
+            background: #d4e7ff;
             border-bottom: 3px solid var(--border-dark);
             padding: 10px 16px;
             display: flex;
@@ -82,7 +81,7 @@
 
         .dot-1 { background: #ff8a75; }
         .dot-2 { background: #f4b942; }
-        .dot-3 { background: #8fb996; }
+        .dot-3 { background: #5496ff; }
 
         .window-title {
             font-family: 'Silkscreen', cursive;
@@ -127,7 +126,7 @@
         .code-slot {
             width: 46px;
             height: 50px;
-            background: #fff4df;
+            background: #eaf3ff;
             border: 3px solid var(--border-dark);
             border-radius: 14px;
             display: flex;
@@ -147,7 +146,7 @@
         }
 
         .key-btn {
-            background: #ffdfd3;
+            background: #e1efff;
             border: 3px solid var(--border-dark);
             border-radius: 14px;
             padding: 12px;
@@ -166,19 +165,19 @@
         }
 
         .key-btn.action-btn {
-            background: #ffe5b4;
+            background: #d4e7ff;
             font-size: 1rem;
         }
 
         .cute-btn {
-            background: var(--accent-gold);
+            background: var(--accent-blue);
             border: 3px solid var(--border-dark);
             border-radius: 16px;
             padding: 13px 22px;
             font-family: 'Fredoka', sans-serif;
             font-size: 1rem;
             font-weight: 600;
-            color: var(--border-dark);
+            color: #ffffff;
             cursor: pointer;
             box-shadow: 0 5px 0 var(--border-dark);
             transition: all 0.12s ease;
@@ -188,7 +187,7 @@
         }
 
         .cute-btn:hover {
-            background: #ffd166;
+            background: #3c82ff;
         }
 
         .cute-btn:active {
@@ -197,7 +196,7 @@
         }
 
         .option-btn {
-            background: #fff9f0;
+            background: #f4f8ff;
             border: 3px solid var(--border-dark);
             border-radius: 16px;
             padding: 13px 16px;
@@ -214,7 +213,7 @@
         }
 
         .option-btn:hover {
-            background: #ffe5b4;
+            background: #d4e7ff;
             transform: translateY(-2px);
         }
 
@@ -231,7 +230,7 @@
         }
 
         .gift-box {
-            background: #ffdfd3;
+            background: #e1efff;
             border: 3px solid var(--border-dark);
             border-radius: 18px;
             padding: 18px 10px;
@@ -241,7 +240,7 @@
         }
 
         .gift-box:hover {
-            background: #ffe5b4;
+            background: #d4e7ff;
             transform: translateY(-3px);
         }
 
@@ -251,7 +250,7 @@
         }
 
         .gift-box.opened {
-            background: #e2f0cb;
+            background: #d3f3e8;
         }
 
         .gift-icon {
@@ -268,7 +267,7 @@
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(74, 59, 50, 0.55);
+            background: rgba(44, 74, 111, 0.45);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -297,7 +296,7 @@
         }
 
         .pill {
-            background: #fff4df;
+            background: #eaf3ff;
             border: 2px solid var(--border-dark);
             border-radius: 12px;
             padding: 6px 10px;
@@ -317,7 +316,7 @@
 
         #runaway-btn {
             position: relative;
-            background: #ffcdc2;
+            background: #dbeaff;
         }
     </style>
 </head>
@@ -331,23 +330,23 @@
             <span class="dot dot-3"></span>
         </div>
         <span class="window-title">DISTRITTO_12.EXE</span>
-        <span>🌼</span>
+        <span>🤍</span>
     </div>
 
     <!-- SCHERMATA 1: CODICE SEGRETO -->
     <div class="content" id="screen-lock">
         <div style="font-size: 2.4rem; margin-bottom: 6px;">🕊️✨</div>
         <h1>Inserisci il Codice Tributo</h1>
-        <p id="hint-text">Indizio: la nostra data speciale (4 cifre)</p>
+        <p id="hint-text">Indizio: il numero che ti rappresenta 🤍</p>
 
         <div class="code-display">
-            <div class="code-slot" id="slot-0">🌼</div>
-            <div class="code-slot" id="slot-1">🌼</div>
-            <div class="code-slot" id="slot-2">🌼</div>
-            <div class="code-slot" id="slot-3">🌼</div>
+            <div class="code-slot" id="slot-0">🌀</div>
+            <div class="code-slot" id="slot-1">🌀</div>
+            <div class="code-slot" id="slot-2">🌀</div>
+            <div class="code-slot" id="slot-3">🌀</div>
         </div>
 
-        <p id="error-msg" style="color: #e05a47; font-weight: 600; font-size: 0.88rem; min-height: 20px; margin-bottom: 4px;"></p>
+        <p id="error-msg" style="color: #ff6b6b; font-weight: 600; font-size: 0.88rem; min-height: 20px; margin-bottom: 4px;"></p>
 
         <div class="keypad">
             <button class="key-btn" onclick="pressKey('1')">1</button>
@@ -367,7 +366,7 @@
 
     <!-- SCHERMATA 2: QUIZ CUTE -->
     <div class="content hidden" id="screen-quiz">
-        <div class="progress-hearts" id="progress-hearts">🔥 🤍 🤍 🤍 🤍</div>
+        <div class="progress-hearts" id="progress-hearts">🤍 🤍 🤍 🤍</div>
         <h2 id="question-text">Domanda qui</h2>
         <div id="options-container"></div>
     </div>
@@ -380,7 +379,7 @@
 
         <div class="gifts-grid">
             <div class="gift-box" id="gift-1" onclick="openGift(1)">
-                <span class="gift-icon">🌼</span>
+                <span class="gift-icon">🤍</span>
                 <span class="gift-label">Dono 1</span>
             </div>
             <div class="gift-box" id="gift-2" onclick="openGift(2)">
@@ -399,16 +398,16 @@
 <div class="modal-overlay hidden" id="modal" onclick="closeModal(event)">
     <div class="modal-card" onclick="event.stopPropagation()">
         <div id="modal-body"></div>
-        <button class="cute-btn" style="margin-top: 16px;" onclick="forceCloseModal()">Chiudi 💛</button>
+        <button class="cute-btn" style="margin-top: 16px;" onclick="forceCloseModal()">Chiudi 🤍</button>
     </div>
 </div>
 
 <script>
     // ==========================================
-    // PERSONALIZZA QUI I TUOI DATI!
+    // CONFIGURAZIONE CODICE TRIBUTO
     // ==========================================
-    const CODICE_SEGRETO = "0718"; // Metti le 4 cifre della vostra data
-    const INDIZIO_CODICE = "Indizio: la nostra data speciale (GGMM) 💛";
+    const CODICE_SEGRETO = "9999"; 
+    const INDIZIO_CODICE = "Indizio: il numero che ti rappresenta 🤍";
     // ==========================================
 
     document.getElementById("hint-text").innerText = INDIZIO_CODICE;
@@ -434,7 +433,7 @@
     function updateSlots() {
         for (let i = 0; i < 4; i++) {
             const slot = document.getElementById(`slot-${i}`);
-            slot.innerText = enteredCode[i] ? enteredCode[i] : "🌼";
+            slot.innerText = enteredCode[i] ? enteredCode[i] : "🌀";
         }
     }
 
@@ -490,7 +489,7 @@
 
         let hearts = "";
         for (let i = 0; i < questions.length; i++) {
-            hearts += i <= currentQ ? "🔥 " : "🤍 ";
+            hearts += i <= currentQ ? "🤍 " : "🫧 ";
         }
         document.getElementById("progress-hearts").innerText = hearts;
 
@@ -500,8 +499,8 @@
         if (q.isFinal) {
             const btnTrue = document.createElement("button");
             btnTrue.className = "option-btn";
-            btnTrue.style.background = "#ffe5b4";
-            btnTrue.innerHTML = "<strong>Vero! 💛</strong> (Sblocca i Paracadute)";
+            btnTrue.style.background = "#d4e7ff";
+            btnTrue.innerHTML = "<strong>Vero! 🤍</strong> (Sblocca i Paracadute)";
             btnTrue.onclick = () => {
                 document.getElementById("screen-quiz").classList.add("hidden");
                 document.getElementById("screen-gifts").classList.remove("hidden");
@@ -543,27 +542,27 @@
 
         if (num === 1) {
             body.innerHTML = `
-                <div style="font-size: 3rem;">🌼💐🌼</div>
-                <h2 style="margin-top: 8px;">Denti di Leone per Te</h2>
-                <p style="font-size: 0.88rem;">Proprio come Peeta con Katniss, questi fiori significano speranza e il fatto che con te tutto è più bello.</p>
+                <div style="font-size: 3rem;">🤍🦋🤍</div>
+                <h2 style="margin-top: 8px;">Un Dono Celeste</h2>
+                <p style="font-size: 0.88rem;">Come un cielo limpido, la tua presenza rende ogni giorno speciale e luminoso.</p>
                 <div class="flower-pills">
-                    <span class="pill">Sei il mio posto sicuro 💛</span>
+                    <span class="pill">Sei il mio posto sicuro 🤍</span>
                     <span class="pill">Mi fai sempre sorridere ✨</span>
                     <span class="pill">La mia alleata preferita 🏹</span>
-                    <span class="pill">Non smettere mai di brillare 🌻</span>
+                    <span class="pill">Meravigliosa sempre 🌊</span>
                 </div>
             `;
         } else if (num === 2) {
             body.innerHTML = `
-                <div style="font-size: 3rem;">🏅🔥</div>
+                <div style="font-size: 3rem;">🏅🤍</div>
                 <h2 style="margin-top: 8px;">Valutazione: 11 / 12</h2>
-                <p>Gli Strategist di Capitol City sono rimasti senza parole: hai l'istinto di Katniss e il cuore d'oro di Peeta. Sopravviveresti senza dubbio!</p>
+                <p>Gli Strategist di Capitol City sono rimasti senza parole: hai l'istinto di Katniss e il cuore d'oro. Sopravviveresti senza dubbio!</p>
             `;
         } else if (num === 3) {
             body.innerHTML = `
                 <div style="font-size: 3rem;">💌🕊️</div>
                 <h2 style="margin-top: 8px;">Un Messaggio per Te</h2>
-                <p style="background: #fff9f0; padding: 14px; border-radius: 14px; border: 2px dashed #4a3b32; font-size: 0.9rem;">
+                <p style="background: #f4f8ff; padding: 14px; border-radius: 14px; border: 2px dashed #2c4a6f; font-size: 0.9rem;">
                     "Vero o non vero che in qualsiasi Arena della vita sceglierei sempre te come mia unica alleata?<br><br><strong>Vero. Sempre.</strong>"
                 </p>
             `;
