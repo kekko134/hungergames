@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panem Cozy Arena</title>
-    <!-- Font arrotondati e stile retro-cute -->
+    <title>Panem Control System • Arena Edition</title>
+    <!-- Font arrotondati e stile retro-cute/tecnologico -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-sky: #f0f7ff;
-            --gingham-1: rgba(186, 217, 255, 0.35);
-            --gingham-2: rgba(214, 234, 255, 0.4);
+            --bg-sky: #eaf3ff;
+            --gingham-1: rgba(168, 206, 255, 0.4);
+            --gingham-2: rgba(198, 224, 255, 0.45);
             --card-bg: #ffffff;
-            --accent-blue: #5496ff;
-            --border-dark: #2c4a6f;
-            --text-main: #2c4a6f;
-            --text-soft: #52729a;
+            --accent-blue: #4084ff;
+            --accent-glow: rgba(64, 132, 255, 0.25);
+            --border-dark: #1b365d;
+            --text-main: #1b365d;
+            --text-soft: #4a6b98;
         }
 
         * {
@@ -30,7 +31,7 @@
             background-image:
                 linear-gradient(90deg, var(--gingham-1) 50%, transparent 50%),
                 linear-gradient(var(--gingham-2) 50%, transparent 50%);
-            background-size: 44px 44px;
+            background-size: 40px 40px;
             color: var(--text-main);
             font-family: 'Fredoka', sans-serif;
             min-height: 100vh;
@@ -44,7 +45,7 @@
             background: var(--card-bg);
             border: 3px solid var(--border-dark);
             border-radius: 24px;
-            box-shadow: 0 8px 0 var(--border-dark);
+            box-shadow: 0 10px 0 var(--border-dark), 0 15px 30px var(--accent-glow);
             max-width: 540px;
             width: 100%;
             overflow: hidden;
@@ -58,7 +59,7 @@
         }
 
         .window-bar {
-            background: #d4e7ff;
+            background: #cce1ff;
             border-bottom: 3px solid var(--border-dark);
             padding: 10px 16px;
             display: flex;
@@ -78,15 +79,15 @@
             border: 2px solid var(--border-dark);
         }
 
-        .dot-1 { background: #ff8a75; }
-        .dot-2 { background: #f4b942; }
-        .dot-3 { background: #5496ff; }
+        .dot-1 { background: #ff765e; }
+        .dot-2 { background: #ffc247; }
+        .dot-3 { background: #4084ff; }
 
         .window-title {
             font-family: 'Silkscreen', cursive;
             font-size: 0.72rem;
             color: var(--border-dark);
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         .content {
@@ -99,6 +100,7 @@
             font-weight: 700;
             color: var(--border-dark);
             margin-bottom: 8px;
+            letter-spacing: -0.5px;
         }
 
         h2 {
@@ -125,7 +127,7 @@
         .code-slot {
             width: 46px;
             height: 50px;
-            background: #eaf3ff;
+            background: #f0f6ff;
             border: 3px solid var(--border-dark);
             border-radius: 14px;
             display: flex;
@@ -145,7 +147,7 @@
         }
 
         .key-btn {
-            background: #e1efff;
+            background: #dceafc;
             border: 3px solid var(--border-dark);
             border-radius: 14px;
             padding: 12px;
@@ -164,7 +166,7 @@
         }
 
         .key-btn.action-btn {
-            background: #d4e7ff;
+            background: #cce1ff;
             font-size: 1rem;
         }
 
@@ -186,7 +188,7 @@
         }
 
         .cute-btn:hover {
-            background: #3c82ff;
+            background: #2b70e8;
         }
 
         .cute-btn:active {
@@ -195,7 +197,7 @@
         }
 
         .option-btn {
-            background: #f4f8ff;
+            background: #f7fafl;
             border: 3px solid var(--border-dark);
             border-radius: 16px;
             padding: 13px 16px;
@@ -212,7 +214,7 @@
         }
 
         .option-btn:hover {
-            background: #d4e7ff;
+            background: #dceafc;
             transform: translateY(-2px);
         }
 
@@ -229,7 +231,7 @@
         }
 
         .gift-box {
-            background: #e1efff;
+            background: #dceafc;
             border: 3px solid var(--border-dark);
             border-radius: 18px;
             padding: 18px 10px;
@@ -239,7 +241,7 @@
         }
 
         .gift-box:hover {
-            background: #d4e7ff;
+            background: #cce1ff;
             transform: translateY(-3px);
         }
 
@@ -249,7 +251,7 @@
         }
 
         .gift-box.opened {
-            background: #d3f3e8;
+            background: #c7f2e2;
         }
 
         .gift-label {
@@ -260,7 +262,7 @@
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(44, 74, 111, 0.45);
+            background: rgba(27, 54, 93, 0.5);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -327,12 +329,12 @@
         }
 
         .flip-card-front {
-            background-color: #e1efff;
+            background-color: #dceafc;
             color: var(--border-dark);
         }
 
         .flip-card-back {
-            background-color: #d3f3e8;
+            background-color: #c7f2e2;
             color: var(--border-dark);
             transform: rotateY(180deg);
             font-size: 0.78rem;
@@ -361,13 +363,13 @@
             <span class="dot dot-2"></span>
             <span class="dot dot-3"></span>
         </div>
-        <span class="window-title">DISTRITTO_12.EXE</span>
+        <span class="window-title">PANEM_CONTROL_SYS</span>
         <span></span>
     </div>
 
     <!-- SCHERMATA 1: CODICE SEGRETO -->
     <div class="content" id="screen-lock">
-        <h1>Inserisci il Codice Tributo</h1>
+        <h1>Accesso Area Strategist</h1>
         <p id="hint-text">Indizio: il numero che ti rappresenta</p>
 
         <div class="code-display">
@@ -377,7 +379,7 @@
             <div class="code-slot" id="slot-3">-</div>
         </div>
 
-        <p id="error-msg" style="color: #ff6b6b; font-weight: 600; font-size: 0.88rem; min-height: 20px; margin-bottom: 4px;"></p>
+        <p id="error-msg" style="color: #ff523b; font-weight: 600; font-size: 0.88rem; min-height: 20px; margin-bottom: 4px;"></p>
 
         <div class="keypad">
             <button class="key-btn" onclick="pressKey('1')">1</button>
@@ -395,7 +397,7 @@
         </div>
     </div>
 
-    <!-- SCHERMATA 2: QUIZ CUTE (9 DOMANDE) -->
+    <!-- SCHERMATA 2: QUIZ CUTE (ESATTAMENTE 9 DOMANDE) -->
     <div class="content hidden" id="screen-quiz">
         <div class="progress-indicator" id="progress-indicator">Domanda 1 di 9</div>
         <h2 id="question-text">Domanda qui</h2>
@@ -405,7 +407,7 @@
     <!-- SCHERMATA 3: I 3 PARACADUTE REGALO -->
     <div class="content hidden" id="screen-gifts">
         <h1>Sopravvissuta all'Arena</h1>
-        <p>Il tuo Sponsor ti ha inviato 3 Paracadute speciali. Cliccali tutti per aprirli.</p>
+        <p>Il quartier generale di Capitol City ha sbloccato 3 Paracadute speciali. Cliccali tutti per aprirli.</p>
 
         <div class="gifts-grid">
             <div class="gift-box" id="gift-1" onclick="openGift(1)">
@@ -419,7 +421,7 @@
             </div>
         </div>
 
-        <button class="cute-btn" style="margin-top: 15px; background: #e1efff; color: var(--border-dark);" onclick="restartApp()">Torna all'inizio</button>
+        <button class="cute-btn" style="margin-top: 15px; background: #dceafc; color: var(--border-dark);" onclick="restartApp()">Torna all'inizio</button>
     </div>
 </div>
 
@@ -474,7 +476,7 @@
         }
     }
 
-    // ESATTAMENTE 9 DOMANDE DI SOPRAVVIVENZA
+    // ESATTAMENTE 9 DOMANDE (LA NONA È QUELLA FINALE DEL VERO)
     const questions = [
         {
             question: "1. Suona il gong iniziale. Vedi la Cornucopia piena di rifornimenti. Cosa fai?",
@@ -560,7 +562,7 @@
         if (q.isFinal) {
             const btnTrue = document.createElement("button");
             btnTrue.className = "option-btn";
-            btnTrue.style.background = "#d4e7ff";
+            btnTrue.style.background = "#cce1ff";
             btnTrue.innerHTML = "<strong>Vero</strong> (Sblocca i Paracadute)";
             btnTrue.onclick = () => {
                 document.getElementById("screen-quiz").classList.add("hidden");
@@ -611,7 +613,6 @@
         const body = document.getElementById("modal-body");
 
         if (num === 1) {
-            // DONO 1: 7 FLIP CARDS INTERATTIVE CON LE 7 FRASI SENZA EMOJI
             body.innerHTML = `
                 <h2>Dono 1: Parole dall'Arena</h2>
                 <p style="font-size: 0.85rem; margin-bottom: 10px;">Clicca su ogni tessera per girarla e scoprire i messaggi dedicati a te.</p>
@@ -664,7 +665,7 @@
             body.innerHTML = `
                 <h2>Dono 2: Valutazione Ufficiale</h2>
                 <p>Punteggio totale acquisito nell'Arena: <strong>11 di 12</strong></p>
-                <div style="background: #f4f8ff; padding: 12px; border-radius: 12px; border: 2px solid var(--border-dark); margin-top: 10px; font-size: 0.9rem;">
+                <div style="background: #f7fafl; padding: 12px; border-radius: 12px; border: 2px solid var(--border-dark); margin-top: 10px; font-size: 0.9rem;">
                     Gli Strategist di Capitol City confermano: hai l'istinto di Katniss e una determinazione senza pari. Sopravviveresti a qualsiasi prova.
                 </div>
             `;
@@ -675,7 +676,7 @@
                 <div id="dono3-content" style="margin-top: 12px;">
                     <p style="font-weight: 600; margin-bottom: 8px;">Vero o non vero che sceglieresti sempre me?</p>
                     <button class="cute-btn" onclick="unlockDono3()">Vero</button>
-                    <button class="cute-btn" style="background: #ff8a75; margin-top: 6px;" onclick="alert('Risposta non valida nell Arena')">Non vero</button>
+                    <button class="cute-btn" style="background: #ff765e; margin-top: 6px;" onclick="alert('Risposta non valida nell Arena')">Non vero</button>
                 </div>
             `;
         }
@@ -685,7 +686,7 @@
 
     function unlockDono3() {
         document.getElementById("dono3-content").innerHTML = `
-            <div style="background: #eaf3ff; padding: 14px; border-radius: 14px; border: 2px dashed var(--border-dark); font-size: 0.92rem; line-height: 1.5;">
+            <div style="background: #f0f6ff; padding: 14px; border-radius: 14px; border: 2px dashed var(--border-dark); font-size: 0.92rem; line-height: 1.5;">
                 In qualsiasi Arena della vita, la risposta è sempre e solo una: Vero. Sempre.
             </div>
         `;
