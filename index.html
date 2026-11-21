@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panem Cozy Arena • Per Te 🌼</title>
+    <!-- Font arrotondati e stile retro-cute -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-cream: #fff9f0;
+            --gingham-1: rgba(246, 211, 145, 0.35);
+            --gingham-2: rgba(255, 198, 179, 0.3);
+            --card-bg: #ffffff;
+            --accent-gold: #f4b942;
+            --accent-coral: #ff8a75;
+            --accent-sage: #8fb996;
+            --border-dark: #4a3b32;
+            --text-main: #4a3b32;
+            --text-soft: #7d685b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            background-image:
+                linear-gradient(90deg, var(--gingham-1) 50%, transparent 50%),
+                linear-gradient(var(--gingham-2) 50%, transparent 50%);
+            background-size: 44px 44px;
+            color: var(--text-main);
+            font-family: 'Fredoka', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+        }
+
+        .window-card {
+            background: var(--card-bg);
+            border: 3px solid var(--border-dark);
+            border-radius: 24px;
+            box-shadow: 0 8px 0 var(--border-dark);
+            max-width: 520px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .window-bar {
+            background: #ffe5b4;
+            border-bottom: 3px solid var(--border-dark);
+            padding: 10px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .window-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid var(--border-dark);
+        }
+
+        .dot-1 { background: #ff8a75; }
+        .dot-2 { background: #f4b942; }
+        .dot-3 { background: #8fb996; }
+
+        .window-title {
+            font-family: 'Silkscreen', cursive;
+            font-size: 0.72rem;
+            color: var(--border-dark);
+            letter-spacing: 0.5px;
+        }
+
+        .content {
+            padding: 26px 22px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--border-dark);
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            line-height: 1.35;
+        }
+
+        p {
+            color: var(--text-soft);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        .code-display {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 16px 0;
+        }
+
+        .code-slot {
+            width: 46px;
+            height: 50px;
+            background: #fff4df;
+            border: 3px solid var(--border-dark);
+            border-radius: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            box-shadow: 0 4px 0 var(--border-dark);
+        }
+
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 240px;
+            margin: 18px auto 10px;
+        }
+
+        .key-btn {
+            background: #ffdfd3;
+            border: 3px solid var(--border-dark);
+            border-radius: 14px;
+            padding: 12px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--border-dark);
+            cursor: pointer;
+            box-shadow: 0 4px 0 var(--border-dark);
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .key-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 var(--border-dark);
+        }
+
+        .key-btn.action-btn {
+            background: #ffe5b4;
+            font-size: 1rem;
+        }
+
+        .cute-btn {
+            background: var(--accent-gold);
+            border: 3px solid var(--border-dark);
+            border-radius: 16px;
+            padding: 13px 22px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--border-dark);
+            cursor: pointer;
+            box-shadow: 0 5px 0 var(--border-dark);
+            transition: all 0.12s ease;
+            display: inline-block;
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .cute-btn:hover {
+            background: #ffd166;
+        }
+
+        .cute-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 var(--border-dark);
+        }
+
+        .option-btn {
+            background: #fff9f0;
+            border: 3px solid var(--border-dark);
+            border-radius: 16px;
+            padding: 13px 16px;
+            margin-bottom: 12px;
+            width: 100%;
+            text-align: left;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--border-dark);
+            cursor: pointer;
+            box-shadow: 0 4px 0 var(--border-dark);
+            transition: all 0.12s ease;
+        }
+
+        .option-btn:hover {
+            background: #ffe5b4;
+            transform: translateY(-2px);
+        }
+
+        .option-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 var(--border-dark);
+        }
+
+        .gifts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 18px 0;
+        }
+
+        .gift-box {
+            background: #ffdfd3;
+            border: 3px solid var(--border-dark);
+            border-radius: 18px;
+            padding: 18px 10px;
+            cursor: pointer;
+            box-shadow: 0 5px 0 var(--border-dark);
+            transition: all 0.15s ease;
+        }
+
+        .gift-box:hover {
+            background: #ffe5b4;
+            transform: translateY(-3px);
+        }
+
+        .gift-box:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 var(--border-dark);
+        }
+
+        .gift-box.opened {
+            background: #e2f0cb;
+        }
+
+        .gift-icon {
+            font-size: 2.1rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .gift-label {
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(74, 59, 50, 0.55);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+            z-index: 100;
+        }
+
+        .modal-card {
+            background: #ffffff;
+            border: 3px solid var(--border-dark);
+            border-radius: 22px;
+            box-shadow: 0 8px 0 var(--border-dark);
+            max-width: 420px;
+            width: 100%;
+            padding: 22px;
+            text-align: center;
+            animation: popIn 0.25s ease;
+        }
+
+        .flower-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin: 14px 0;
+        }
+
+        .pill {
+            background: #fff4df;
+            border: 2px solid var(--border-dark);
+            border-radius: 12px;
+            padding: 6px 10px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .progress-hearts {
+            font-size: 1.2rem;
+            margin-bottom: 14px;
+            letter-spacing: 4px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        #runaway-btn {
+            position: relative;
+            background: #ffcdc2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="window-card">
+    <div class="window-bar">
+        <div class="window-dots">
+            <span class="dot dot-1"></span>
+            <span class="dot dot-2"></span>
+            <span class="dot dot-3"></span>
+        </div>
+        <span class="window-title">DISTRITTO_12.EXE</span>
+        <span>🌼</span>
+    </div>
+
+    <!-- SCHERMATA 1: CODICE SEGRETO -->
+    <div class="content" id="screen-lock">
+        <div style="font-size: 2.4rem; margin-bottom: 6px;">🕊️✨</div>
+        <h1>Inserisci il Codice Tributo</h1>
+        <p id="hint-text">Indizio: la nostra data speciale (4 cifre)</p>
+
+        <div class="code-display">
+            <div class="code-slot" id="slot-0">🌼</div>
+            <div class="code-slot" id="slot-1">🌼</div>
+            <div class="code-slot" id="slot-2">🌼</div>
+            <div class="code-slot" id="slot-3">🌼</div>
+        </div>
+
+        <p id="error-msg" style="color: #e05a47; font-weight: 600; font-size: 0.88rem; min-height: 20px; margin-bottom: 4px;"></p>
+
+        <div class="keypad">
+            <button class="key-btn" onclick="pressKey('1')">1</button>
+            <button class="key-btn" onclick="pressKey('2')">2</button>
+            <button class="key-btn" onclick="pressKey('3')">3</button>
+            <button class="key-btn" onclick="pressKey('4')">4</button>
+            <button class="key-btn" onclick="pressKey('5')">5</button>
+            <button class="key-btn" onclick="pressKey('6')">6</button>
+            <button class="key-btn" onclick="pressKey('7')">7</button>
+            <button class="key-btn" onclick="pressKey('8')">8</button>
+            <button class="key-btn" onclick="pressKey('9')">9</button>
+            <button class="key-btn action-btn" onclick="clearCode()">C</button>
+            <button class="key-btn" onclick="pressKey('0')">0</button>
+            <button class="key-btn action-btn" onclick="checkCode()">OK</button>
+        </div>
+    </div>
+
+    <!-- SCHERMATA 2: QUIZ CUTE -->
+    <div class="content hidden" id="screen-quiz">
+        <div class="progress-hearts" id="progress-hearts">🔥 🤍 🤍 🤍 🤍</div>
+        <h2 id="question-text">Domanda qui</h2>
+        <div id="options-container"></div>
+    </div>
+
+    <!-- SCHERMATA 3: I 3 PARACADUTE REGALO -->
+    <div class="content hidden" id="screen-gifts">
+        <div style="font-size: 2.2rem; margin-bottom: 4px;">🎉🪂</div>
+        <h1>Sopravvissuta all'Arena!</h1>
+        <p>Il tuo Sponsor ti ha inviato <strong>3 Paracadute speciali</strong>.<br>Cliccali tutti per aprirli!</p>
+
+        <div class="gifts-grid">
+            <div class="gift-box" id="gift-1" onclick="openGift(1)">
+                <span class="gift-icon">🌼</span>
+                <span class="gift-label">Dono 1</span>
+            </div>
+            <div class="gift-box" id="gift-2" onclick="openGift(2)">
+                <span class="gift-icon">🏅</span>
+                <span class="gift-label">Dono 2</span>
+            </div>
+            <div class="gift-box" id="gift-3" onclick="openGift(3)">
+                <span class="gift-icon">💌</span>
+                <span class="gift-label">Dono 3</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- POPUP MODALE -->
+<div class="modal-overlay hidden" id="modal" onclick="closeModal(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+        <div id="modal-body"></div>
+        <button class="cute-btn" style="margin-top: 16px;" onclick="forceCloseModal()">Chiudi 💛</button>
+    </div>
+</div>
+
+<script>
+    // ==========================================
+    // PERSONALIZZA QUI I TUOI DATI!
+    // ==========================================
+    const CODICE_SEGRETO = "0718"; // Metti le 4 cifre della vostra data
+    const INDIZIO_CODICE = "Indizio: la nostra data speciale (GGMM) 💛";
+    // ==========================================
+
+    document.getElementById("hint-text").innerText = INDIZIO_CODICE;
+    let enteredCode = "";
+
+    function pressKey(num) {
+        if (enteredCode.length < 4) {
+            enteredCode += num;
+            updateSlots();
+            document.getElementById("error-msg").innerText = "";
+        }
+        if (enteredCode.length === 4) {
+            setTimeout(checkCode, 250);
+        }
+    }
+
+    function clearCode() {
+        enteredCode = "";
+        updateSlots();
+        document.getElementById("error-msg").innerText = "";
+    }
+
+    function updateSlots() {
+        for (let i = 0; i < 4; i++) {
+            const slot = document.getElementById(`slot-${i}`);
+            slot.innerText = enteredCode[i] ? enteredCode[i] : "🌼";
+        }
+    }
+
+    function checkCode() {
+        if (enteredCode === CODICE_SEGRETO) {
+            document.getElementById("screen-lock").classList.add("hidden");
+            document.getElementById("screen-quiz").classList.remove("hidden");
+            showQuestion();
+        } else {
+            document.getElementById("error-msg").innerText = "Codice errato, Tributo! Riprova 🙈";
+            enteredCode = "";
+            setTimeout(updateSlots, 500);
+        }
+    }
+
+    const questions = [
+        {
+            question: "1. Suona il gong iniziale! Vedi la Cornucopia piena di zaini. Cosa fai?",
+            options: [
+                { text: "🏃‍♀️ Afferro uno zaino al volo e corro subito nel bosco", points: 5 },
+                { text: "🤝 Cerco subito il mio alleato preferito per scappare insieme", points: 4 },
+                { text: "🏹 Corro dritta al centro senza paura", points: 3 }
+            ]
+        },
+        {
+            question: "2. È notte nell'Arena e fa freddo. Qual è la tua mossa?",
+            options: [
+                { text: "🌳 Mi arrampico sull'albero più alto e mi lego ai rami", points: 5 },
+                { text: "🌿 Mi nascondo in una grotta accogliente al buio", points: 4 },
+                { text: "🍰 Aspetto che il mio Sponsor mi mandi dei dolcetti", points: 3 }
+            ]
+        },
+        {
+            question: "3. Qual è la tua vera arma segreta per conquistare gli Sponsor?",
+            options: [
+                { text: "🧠 La mia astuzia e il sangue freddo", points: 5 },
+                { text: "✨ Il mio sorriso (anche nei momenti peggiori)", points: 5 },
+                { text: "💪 La mia testardaggine: non mollo mai", points: 4 }
+            ]
+        },
+        {
+            question: "4. Domanda finale: «Vero o non vero?» Il tuo Sponsor è la persona migliore che potessi trovare?",
+            isFinal: true
+        }
+    ];
+
+    let currentQ = 0;
+    let score = 0;
+
+    function showQuestion() {
+        const q = questions[currentQ];
+        document.getElementById("question-text").innerText = q.question;
+
+        let hearts = "";
+        for (let i = 0; i < questions.length; i++) {
+            hearts += i <= currentQ ? "🔥 " : "🤍 ";
+        }
+        document.getElementById("progress-hearts").innerText = hearts;
+
+        const container = document.getElementById("options-container");
+        container.innerHTML = "";
+
+        if (q.isFinal) {
+            const btnTrue = document.createElement("button");
+            btnTrue.className = "option-btn";
+            btnTrue.style.background = "#ffe5b4";
+            btnTrue.innerHTML = "<strong>Vero! 💛</strong> (Sblocca i Paracadute)";
+            btnTrue.onclick = () => {
+                document.getElementById("screen-quiz").classList.add("hidden");
+                document.getElementById("screen-gifts").classList.remove("hidden");
+            };
+            container.appendChild(btnTrue);
+
+            const btnFalse = document.createElement("button");
+            btnFalse.className = "option-btn";
+            btnFalse.id = "runaway-btn";
+            btnFalse.innerText = "Non vero 😜";
+            btnFalse.onmouseover = moveBtn;
+            btnFalse.onclick = moveBtn;
+            container.appendChild(btnFalse);
+        } else {
+            q.options.forEach(opt => {
+                const btn = document.createElement("button");
+                btn.className = "option-btn";
+                btn.innerText = opt.text;
+                btn.onclick = () => {
+                    score += opt.points;
+                    currentQ++;
+                    showQuestion();
+                };
+                container.appendChild(btn);
+            });
+        }
+    }
+
+    function moveBtn() {
+        const btn = document.getElementById("runaway-btn");
+        const x = Math.floor(Math.random() * 140) - 70;
+        const y = Math.floor(Math.random() * 80) - 40;
+        btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function openGift(num) {
+        document.getElementById(`gift-${num}`).classList.add("opened");
+        const body = document.getElementById("modal-body");
+
+        if (num === 1) {
+            body.innerHTML = `
+                <div style="font-size: 3rem;">🌼💐🌼</div>
+                <h2 style="margin-top: 8px;">Denti di Leone per Te</h2>
+                <p style="font-size: 0.88rem;">Proprio come Peeta con Katniss, questi fiori significano speranza e il fatto che con te tutto è più bello.</p>
+                <div class="flower-pills">
+                    <span class="pill">Sei il mio posto sicuro 💛</span>
+                    <span class="pill">Mi fai sempre sorridere ✨</span>
+                    <span class="pill">La mia alleata preferita 🏹</span>
+                    <span class="pill">Non smettere mai di brillare 🌻</span>
+                </div>
+            `;
+        } else if (num === 2) {
+            body.innerHTML = `
+                <div style="font-size: 3rem;">🏅🔥</div>
+                <h2 style="margin-top: 8px;">Valutazione: 11 / 12</h2>
+                <p>Gli Strategist di Capitol City sono rimasti senza parole: hai l'istinto di Katniss e il cuore d'oro di Peeta. Sopravviveresti senza dubbio!</p>
+            `;
+        } else if (num === 3) {
+            body.innerHTML = `
+                <div style="font-size: 3rem;">💌🕊️</div>
+                <h2 style="margin-top: 8px;">Un Messaggio per Te</h2>
+                <p style="background: #fff9f0; padding: 14px; border-radius: 14px; border: 2px dashed #4a3b32; font-size: 0.9rem;">
+                    "Vero o non vero che in qualsiasi Arena della vita sceglierei sempre te come mia unica alleata?<br><br><strong>Vero. Sempre.</strong>"
+                </p>
+            `;
+        }
+
+        document.getElementById("modal").classList.remove("hidden");
+    }
+
+    function forceCloseModal() {
+        document.getElementById("modal").classList.add("hidden");
+    }
+
+    function closeModal(e) {
+        if (e.target.id === "modal") {
+            forceCloseModal();
+        }
+    }
+</script>
+
+</body>
+</html>
